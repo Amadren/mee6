@@ -28,7 +28,7 @@ class Commands(Plugin):
             return
         storage = await self.get_storage(message.server)
         commands = await storage.smembers('commands')
-        if message.content in commands:
+        if any(message.content in dankvar for dankvar in commands):
             log.info('{}#{}@{} >> {}'.format(
                 message.author.name,
                 message.author.discriminator,
